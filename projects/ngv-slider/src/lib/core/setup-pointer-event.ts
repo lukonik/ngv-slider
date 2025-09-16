@@ -7,7 +7,6 @@ interface PointerEventHandlers {
 }
 
 
-/*************  ✨ Windsurf Command ⭐  *************/
 /**
  * Sets up a pointer event listener on the provided target element.
  * The provided handlers will be called when the corresponding pointer events occur.
@@ -16,7 +15,6 @@ interface PointerEventHandlers {
  * @param document The document to listen to for pointer events.
  * @param handlers The handlers to call for the respective pointer events.
  */
-/*******  5b40f426-7a03-4fcb-beba-52cc24777af7  *******/
 export function setupPointerEvent(
   target: HTMLElement,
   document: Document,
