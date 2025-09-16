@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgvSliderComponent } from './ngv-slider.component';
+import { SliderComponent } from './slider.component';
 
-describe('NgvSliderComponent', () => {
-  let component: NgvSliderComponent;
-  let fixture: ComponentFixture<NgvSliderComponent>;
+describe('SliderComponent', () => {
+  let component: SliderComponent;
+  let fixture: ComponentFixture<SliderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgvSliderComponent]
+      imports: [SliderComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NgvSliderComponent);
+    fixture = TestBed.createComponent(SliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
