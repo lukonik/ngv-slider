@@ -9,6 +9,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
+    "paths": {
+      "ngv-slider": [
+        "./dist/ngv-slider"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
