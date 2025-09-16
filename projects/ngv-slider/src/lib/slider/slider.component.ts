@@ -1,11 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, ElementRef, inject, signal } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SliderValueType } from '../types/slider-types';
+import { SliderTrackComponent } from '../slider-track/slider-track.component';
+import { SliderTrackHandleComponent } from '../slider-track-handle/slider-track-handle.component';
+import { scaleRange } from '../utils/scale-range';
+import { getElementSize } from '../utils/get-element-size';
+import { coercePixelValue } from '../utils/coerce-pixel-value';
+import { provideHost } from '../utils/provide-host';
 
 @Component({
   selector: 'ngv-slider',
   standalone: true,
-  imports: [],
+  imports: [SliderTrackComponent, SliderTrackHandleComponent],
   templateUrl: './slider.component.html',
   providers: [
     {
@@ -19,11 +25,25 @@ import { SliderValueType } from '../types/slider-types';
   },
 })
 export class SliderComponent implements ControlValueAccessor {
-  protected value = signal<SliderValueType>(undefined);
+  protected value = signal<number>(0);
 
   private _onTouched!: () => unknown | undefined;
   private _onChange!: () => unknown | undefined;
   protected disabled = signal<boolean | undefined>(undefined);
+
+  private _el = provideHost();
+
+  position = computed(() => {
+    return coercePixelValue(
+      scaleRange(0, 100, this.value(), 0, this._el.clientWidth)
+    );
+  });
+
+  constructor() {
+    // setInterval(() => {
+    //   this.value.update((v) => v + 1);
+    // }, 100);
+  }
 
   writeValue(obj: any): void {
     throw new Error('Method not implemented.');

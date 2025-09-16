@@ -5,4 +5,17 @@
 .ngv-slider-inner {
   display: block;
   width: 100%;
+  position: relative;
+}
+
+.ngv-slider-track {
+  display: block;
+  width: 100%;
+  background: var(--ngv-slider-track-color, #000);
+  height: var(--ngv-slider-track-height, 4px);
+}
+
+.ngv-slider-track-handle {
+  position: absolute;
+  color: red;
 }
