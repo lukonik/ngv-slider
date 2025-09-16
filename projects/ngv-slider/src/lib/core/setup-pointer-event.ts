@@ -6,9 +6,17 @@ interface PointerEventHandlers {
   onEnd?: (event: PointerEvent) => void;
 }
 
+
+/*************  ✨ Windsurf Command ⭐  *************/
 /**
- * Sets up pointer interactions for the provided `target` using the document as the event host.
+ * Sets up a pointer event listener on the provided target element.
+ * The provided handlers will be called when the corresponding pointer events occur.
+ * The handlers will be cleaned up when the component is destroyed.
+ * @param target The element to listen to for pointer events.
+ * @param document The document to listen to for pointer events.
+ * @param handlers The handlers to call for the respective pointer events.
  */
+/*******  5b40f426-7a03-4fcb-beba-52cc24777af7  *******/
 export function setupPointerEvent(
   target: HTMLElement,
   document: Document,
