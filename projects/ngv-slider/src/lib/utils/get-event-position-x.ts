@@ -1,7 +1,4 @@
-import { getElementRect } from './get-element-rect';
-
-export function getEventPositionX(e: PointerEvent, target: HTMLElement) {
-  const { left } = getElementRect(target);
+export function getEventPositionX(e: PointerEvent, targetLeft: number) {
   const { clientX } = e;
-  return clientX - left;
+  return clientX - targetLeft;
 }

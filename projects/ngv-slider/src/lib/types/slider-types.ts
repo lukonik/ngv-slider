@@ -7,3 +7,8 @@ export type SliderValueType =
 export type SliderHandleType = 'from' | 'to';
 
 export type SliderValueMode = 'single' | 'range';
+
+export interface SliderRangeValueType {
+  from: number;
+  to: number;
+}

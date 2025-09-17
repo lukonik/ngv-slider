@@ -1,0 +1,5 @@
+:root {
+  --ngv-slider-track-color: oklch(20.5% 0 0);
+  --ngv-slider-track-handle-background: white;
+  --ngv-slider-track-handle-border: 1px solid oklch(20.5% 0 0);
+}
