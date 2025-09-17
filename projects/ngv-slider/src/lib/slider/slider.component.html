@@ -1,11 +1,11 @@
 <div class="ngv-slider-inner">
-  <ngv-slider-track-handle
+  <ngv-slider-thumb
     (start)="handleStart()"
     (move)="handleMove($event)"
     (end)="handleEnd($event)"
     (decrease)="increase(-1)"
     (increase)="increase(1)"
     [style.left]="position()"
-  ></ngv-slider-track-handle>
+  ></ngv-slider-thumb>
   <ngv-slider-track></ngv-slider-track>
 </div>

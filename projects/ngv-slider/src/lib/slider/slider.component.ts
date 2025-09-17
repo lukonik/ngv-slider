@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseSlider } from '../core/base-slider';
-import { SliderTrackHandleComponent } from '../slider-track-handle/slider-track-handle.component';
+import { SliderThumbComponent } from '../slider-thumb/slider-thumb.component';
 import { SliderTrackComponent } from '../slider-track/slider-track.component';
 import { clamp } from '../utils/clamp';
 import { coercePixelValue } from '../utils/coerce-pixel-value';
@@ -11,7 +11,7 @@ import { scaleRange } from '../utils/scale-range';
 @Component({
   selector: 'ngv-slider',
   standalone: true,
-  imports: [SliderTrackComponent, SliderTrackHandleComponent],
+  imports: [SliderTrackComponent, SliderThumbComponent],
   templateUrl: './slider.component.html',
   providers: [
     {

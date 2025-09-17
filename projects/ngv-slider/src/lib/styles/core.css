@@ -16,12 +16,12 @@
   height: var(--ngv-slider-track-height, 4px);
 }
 
-.ngv-slider-track-handle {
+.ngv-slider-thumb {
   position: absolute;
   color: red;
-  height: var(--ngv-slider-track-handle-height, 16px);
-  width: var(--ngv-slider-track-handle-width, 16px);
-  border-radius: var(--ngv-slider-track-handle-border-radius, 100%);
-  background: var(--ngv-slider-track-handle-background);
-  border: var(--ngv-slider-track-handle-border);
+  height: var(--ngv-slider-thumb-height, 16px);
+  width: var(--ngv-slider-thumb-width, 16px);
+  border-radius: var(--ngv-slider-thumb-border-radius, 100%);
+  background: var(--ngv-slider-thumb-background);
+  border: var(--ngv-slider-thumb-border);
 }

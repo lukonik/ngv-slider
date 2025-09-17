@@ -4,19 +4,19 @@ import { setupPointerEvent } from '../core/setup-pointer-event';
 import { provideHost } from '../utils/provide-host';
 
 @Component({
-  selector: 'ngv-slider-track-handle',
+  selector: 'ngv-slider-thumb',
   standalone: true,
   imports: [],
-  templateUrl: './slider-track-handle.component.html',
+  templateUrl: './slider-thumb.component.html',
   styles: ``,
   encapsulation: ViewEncapsulation.None,
   host: {
-    class: 'ngv-slider-track-handle',
+    class: 'ngv-slider-thumb',
     '[tabIndex]': '0',
     '(keydown)': 'onKeydown($event)',
   },
 })
-export class SliderTrackHandleComponent {
+export class SliderThumbComponent {
   private _el = provideHost();
 
   start = output<PointerEvent>();
