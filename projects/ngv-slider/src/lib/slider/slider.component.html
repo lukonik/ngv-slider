@@ -1,8 +1,8 @@
 <div class="ngv-slider-inner">
   <ngv-slider-thumb
-    (start)="handleStart()"
-    (move)="handleMove($event)"
-    (end)="handleEnd($event)"
+    (thumbStart)="handleStart()"
+    (thumbMove)="handleMove($event)"
+    (thumbEnd)="handleEnd($event)"
     (decrease)="increase(-1)"
     (increase)="increase(1)"
     [align]="thumbAlign()"

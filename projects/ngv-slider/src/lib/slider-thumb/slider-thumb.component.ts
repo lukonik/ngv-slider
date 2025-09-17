@@ -28,9 +28,10 @@ import { provideHost } from '../utils/provide-host';
 export class SliderThumbComponent {
   private _el = provideHost();
 
-  start = output<PointerEvent>();
-  end = output<PointerEvent>();
-  move = output<PointerEvent>();
+  // eslint-disable-next-line @angular-eslint/no-output-native
+  thumbStart = output<PointerEvent>();
+  thumbEnd = output<PointerEvent>();
+  thumbMove = output<PointerEvent>();
   decrease = output<void>();
   increase = output<void>();
   position = input.required<string>();
@@ -38,9 +39,9 @@ export class SliderThumbComponent {
 
   constructor() {
     setupPointerEvent(this._el, inject(DOCUMENT), {
-      onStart: (e) => this.start.emit(e),
-      onMove: (e) => this.move.emit(e),
-      onEnd: (e) => this.end.emit(e),
+      onStart: (e) => this.thumbStart.emit(e),
+      onMove: (e) => this.thumbMove.emit(e),
+      onEnd: (e) => this.thumbEnd.emit(e),
     });
   }
 

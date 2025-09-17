@@ -45,7 +45,6 @@ export class SliderComponent extends BaseSlider<number> {
   }
 
   handleMove($event: PointerEvent) {
-    console.log($event.clientX);
     if (this.handleIsStarted()) {
       this.updateValue(this.eventPosToValue($event));
     }
@@ -53,11 +52,9 @@ export class SliderComponent extends BaseSlider<number> {
 
   increase(incr: number) {
     this.updateValue(clamp(this.value() + incr, this.min(), this.max()));
-    console.log(this.value());
   }
 
   handleEnd(e: PointerEvent) {
-    console.log('END');
     this.handleIsStarted.set(false);
   }
 }
