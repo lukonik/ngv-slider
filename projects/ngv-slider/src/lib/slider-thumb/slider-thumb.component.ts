@@ -1,6 +1,13 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, inject, output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { setupPointerEvent } from '../core/setup-pointer-event';
+import { SliderThumbAlign } from '../types/slider-types';
 import { provideHost } from '../utils/provide-host';
 
 @Component({
@@ -14,6 +21,8 @@ import { provideHost } from '../utils/provide-host';
     class: 'ngv-slider-thumb',
     '[tabIndex]': '0',
     '(keydown)': 'onKeydown($event)',
+    '[style.left]': 'position()',
+    '[style.top]': 'top()'
   },
 })
 export class SliderThumbComponent {
@@ -24,6 +33,8 @@ export class SliderThumbComponent {
   move = output<PointerEvent>();
   decrease = output<void>();
   increase = output<void>();
+  position = input.required<string>();
+  align = input.required<SliderThumbAlign>();
 
   constructor() {
     setupPointerEvent(this._el, inject(DOCUMENT), {
@@ -47,6 +58,26 @@ export class SliderThumbComponent {
         break;
       default:
         break;
+    }
+  }
+
+  /**
+   * Computes vertical position based on `align`:
+   * - 'start'  => top of the track (thumb sits above the track)
+   * - 'middle' => centered on the track
+   * - 'end'    => bottom of the track (thumb sits below the track)
+   */
+  top(): string {
+    const trackH = 'var(--ngv-slider-track-height, 4px)';
+    const thumbH = 'var(--ngv-slider-thumb-height, 16px)';
+    switch (this.align()) {
+      case 'start':
+        return `calc(0px - ${thumbH})`;
+      case 'end':
+        return trackH;
+      case 'middle':
+      default:
+        return `calc((${trackH} - ${thumbH}) / 2)`;
     }
   }
 }

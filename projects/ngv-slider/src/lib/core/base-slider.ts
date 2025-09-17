@@ -1,8 +1,8 @@
-import { Directive, effect, input, Signal, signal } from '@angular/core';
+import { Directive, input, Signal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor } from '@angular/forms';
 import { map } from 'rxjs';
-import { SliderRangeValueType } from '../types/slider-types';
+import { SliderRangeValueType, SliderThumbAlign } from '../types/slider-types';
 import { clamp } from '../utils/clamp';
 import { getElementRect } from '../utils/get-element-rect';
 import { getEventPositionX } from '../utils/get-event-position-x';
@@ -34,15 +34,11 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
     resizeObserverStream(this.el).pipe(map((el) => getElementRect(this.el)))
   ) as Signal<DOMRect>;
 
-  constructor() {
-    effect(() => {
-      console.log(this.elRect());
-    });
-  }
-
   min = input<number>(MIN_VALUE);
 
   max = input<number>(MAX_VALUE);
+
+  thumbAlign = input<SliderThumbAlign>('middle');
 
   registerOnChange(fn: unknown): void {
     this.onChange = fn as () => unknown;

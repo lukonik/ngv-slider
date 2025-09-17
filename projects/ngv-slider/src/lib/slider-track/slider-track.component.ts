@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ngv-slider-track',
@@ -11,4 +11,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
     class: 'ngv-slider-track',
   },
 })
-export class SliderTrackComponent {}
+export class SliderTrackComponent {
+  startPosition = input.required<string>();
+  endPosition = input.required<string>();
+}

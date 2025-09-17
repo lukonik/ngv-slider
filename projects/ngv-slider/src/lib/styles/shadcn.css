@@ -2,4 +2,6 @@
   --ngv-slider-track-color: oklch(20.5% 0 0);
   --ngv-slider-thumb-background: white;
   --ngv-slider-thumb-border: 1px solid oklch(20.5% 0 0);
+  --ngv-slider-track-inactive-color: oklch(87.2% 0.01 258.338);
+  --ngv-slider-track-active-color: oklch(20.5% 0 0);
 }

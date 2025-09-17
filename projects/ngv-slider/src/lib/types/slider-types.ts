@@ -12,3 +12,5 @@ export interface SliderRangeValueType {
   from: number;
   to: number;
 }
+
+export type SliderThumbAlign = 'start' | 'middle' | 'end';

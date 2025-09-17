@@ -27,7 +27,7 @@ import { scaleRange } from '../utils/scale-range';
 })
 export class SliderComponent extends BaseSlider<number> {
   override initValue(): number {
-    return 0;
+    return 20;
   }
   private handleIsStarted = signal<boolean>(false);
 
