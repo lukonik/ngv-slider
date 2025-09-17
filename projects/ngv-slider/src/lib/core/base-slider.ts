@@ -1,4 +1,10 @@
-import { Directive, input, Signal, signal } from '@angular/core';
+import {
+  booleanAttribute,
+  Directive,
+  input,
+  Signal,
+  signal,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor } from '@angular/forms';
 import { map, startWith } from 'rxjs';
@@ -42,6 +48,7 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
   max = input<number>(MAX_VALUE);
 
   thumbAlign = input<SliderThumbAlign>('middle');
+  showThumbLabel = input(false, { transform: booleanAttribute });
 
   registerOnChange(fn: unknown): void {
     this.onChange = fn as () => unknown;

@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import {
   Component,
+  computed,
   inject,
   input,
   output,
@@ -22,13 +23,16 @@ import { provideHost } from '../utils/provide-host';
     '[tabIndex]': '0',
     '(keydown)': 'onKeydown($event)',
     '[style.left]': 'position()',
-    '[style.top]': 'top()'
+    '[style.top]': 'top()',
   },
 })
 export class SliderThumbComponent {
   private _el = provideHost();
 
   // eslint-disable-next-line @angular-eslint/no-output-native
+  value = input<number>();
+  showLabel = input<boolean>();
+  label = computed(() => this.value());
   thumbStart = output<PointerEvent>();
   thumbEnd = output<PointerEvent>();
   thumbMove = output<PointerEvent>();

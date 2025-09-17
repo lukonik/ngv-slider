@@ -1,5 +1,7 @@
 <div class="ngv-slider-inner">
   <ngv-slider-thumb
+    [value]="value()"
+    [showLabel]="showThumbLabel()"
     (thumbStart)="handleStart()"
     (thumbMove)="handleMove($event)"
     (thumbEnd)="handleEnd($event)"

@@ -37,11 +37,19 @@
 
 .ngv-slider-thumb {
   position: absolute;
+  z-index: 2;
+  touch-action: none;
+}
+
+.ngv-slider-thumb-knob {
   height: var(--ngv-slider-thumb-height, 16px);
   width: var(--ngv-slider-thumb-width, 16px);
   border-radius: var(--ngv-slider-thumb-border-radius, 100%);
   background: var(--ngv-slider-thumb-background);
   border: var(--ngv-slider-thumb-border);
-  z-index: 2;
-  touch-action: none;
+}
+
+.ngv-slider-thumb-label {
+  position: absolute;
+  bottom: var(--ngv-slider-thumb-height);
 }
