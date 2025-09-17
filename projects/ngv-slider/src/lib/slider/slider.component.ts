@@ -54,7 +54,7 @@ export class SliderComponent extends BaseSlider<number> {
     this.updateValue(clamp(this.value() + incr, this.min(), this.max()));
   }
 
-  handleEnd(e: PointerEvent) {
+  handleEnd() {
     this.handleIsStarted.set(false);
   }
 }

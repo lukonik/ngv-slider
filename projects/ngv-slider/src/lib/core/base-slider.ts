@@ -47,6 +47,8 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
 
   max = input<number>(MAX_VALUE);
 
+  step = input<number>(1);
+
   thumbAlign = input<SliderThumbAlign>('middle');
   showThumbLabel = input(false, { transform: booleanAttribute });
 
@@ -86,6 +88,10 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
       this.min(),
       this.max()
     );
-    return scale;
+    const step = this.step();
+    const steppedValue =
+      this.min() + Math.round((scale - this.min()) / step) * step;
+
+    return clamp(steppedValue, this.min(), this.max());
   }
 }

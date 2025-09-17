@@ -4,4 +4,10 @@
   --ngv-slider-thumb-border: 1px solid oklch(20.5% 0 0);
   --ngv-slider-track-inactive-color: oklch(87.2% 0.01 258.338);
   --ngv-slider-track-active-color: oklch(20.5% 0 0);
+  --ngv-slider-thumb-focus-outline: none;
+  --ngv-slider-thumb-focus-shadow: 0 6px 12px -4px color-mix(in srgb, oklch(
+            20.5% 0 0
+          )
+          18%, transparent),
+    0 2px 4px 4px color-mix(in srgb, black 25%, transparent);
 }

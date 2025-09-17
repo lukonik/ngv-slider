@@ -47,6 +47,10 @@
   border-radius: var(--ngv-slider-thumb-border-radius, 100%);
   background: var(--ngv-slider-thumb-background);
   border: var(--ngv-slider-thumb-border);
+  &:focus {
+    outline: var(--ngv-slider-thumb-focus-outline);
+    box-shadow: var(--ngv-slider-thumb-focus-shadow);
+  }
 }
 
 .ngv-slider-thumb-label {

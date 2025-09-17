@@ -1,17 +1,17 @@
 <div class="ngv-slider-inner">
-  <ngv-slider-thumb
-    [value]="value()"
+  <!-- <ngv-slider-thumb
+    [value]="value().from"
     [showLabel]="showThumbLabel()"
     (thumbStart)="handleStart()"
     (thumbMove)="handleMove($event)"
-    (thumbEnd)="handleEnd()"
-    (decrease)="increase(-step())"
-    (increase)="increase(step())"
+    (thumbEnd)="handleEnd($event)"
+    (decrease)="increase(-1)"
+    (increase)="increase(1)"
     [align]="thumbAlign()"
     [position]="position()"
   ></ngv-slider-thumb>
   <ngv-slider-track
     [startPosition]="'0'"
     [endPosition]="position()"
-  ></ngv-slider-track>
+  ></ngv-slider-track> -->
 </div>

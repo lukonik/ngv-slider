@@ -12,7 +12,8 @@
         "@schematics/angular:component": {
           "viewEncapsulation": "None",
           "style": "css",
-          "inlineStyle": true
+          "inlineStyle": true,
+          "changeDetection": "OnPush"
         }
       },
       "architect": {
