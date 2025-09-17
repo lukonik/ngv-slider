@@ -5,7 +5,6 @@ import { SliderThumbComponent } from '../slider-thumb/slider-thumb.component';
 import { SliderTrackComponent } from '../slider-track/slider-track.component';
 import { clamp } from '../utils/clamp';
 import { coercePixelValue } from '../utils/coerce-pixel-value';
-import { getElementSize } from '../utils/get-element-size';
 import { scaleRange } from '../utils/scale-range';
 
 @Component({
@@ -33,13 +32,7 @@ export class SliderComponent extends BaseSlider<number> {
 
   position = computed(() => {
     return coercePixelValue(
-      scaleRange(
-        this.min(),
-        this.max(),
-        this.value(),
-        0,
-        getElementSize(this.el).width
-      )
+      scaleRange(this.min(), this.max(), this.value(), 0, this.elRect().width)
     );
   });
 
@@ -52,6 +45,7 @@ export class SliderComponent extends BaseSlider<number> {
   }
 
   handleMove($event: PointerEvent) {
+    console.log($event.clientX);
     if (this.handleIsStarted()) {
       this.updateValue(this.eventPosToValue($event));
     }
@@ -63,6 +57,7 @@ export class SliderComponent extends BaseSlider<number> {
   }
 
   handleEnd(e: PointerEvent) {
+    console.log('END');
     this.handleIsStarted.set(false);
   }
 }

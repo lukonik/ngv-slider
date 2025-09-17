@@ -43,4 +43,5 @@
   background: var(--ngv-slider-thumb-background);
   border: var(--ngv-slider-thumb-border);
   z-index: 2;
+  touch-action: none;
 }

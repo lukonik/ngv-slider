@@ -1,7 +1,7 @@
 import { Directive, input, Signal, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor } from '@angular/forms';
-import { map } from 'rxjs';
+import { map, startWith } from 'rxjs';
 import { SliderRangeValueType, SliderThumbAlign } from '../types/slider-types';
 import { clamp } from '../utils/clamp';
 import { getElementRect } from '../utils/get-element-rect';
@@ -31,7 +31,10 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
    * we get performance improvement by that
    */
   protected elRect = toSignal<DOMRect>(
-    resizeObserverStream(this.el).pipe(map((el) => getElementRect(this.el)))
+    resizeObserverStream(this.el).pipe(
+      map(() => getElementRect(this.el)),
+      startWith(getElementRect(this.el))
+    )
   ) as Signal<DOMRect>;
 
   min = input<number>(MIN_VALUE);
