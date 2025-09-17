@@ -85,4 +85,8 @@ export class SliderThumbComponent {
         return `calc((${trackH} - ${thumbH}) / 2)`;
     }
   }
+
+  focus() {
+    this._el.focus();
+  }
 }

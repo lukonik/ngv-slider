@@ -51,6 +51,7 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
 
   thumbAlign = input<SliderThumbAlign>('middle');
   showThumbLabel = input(false, { transform: booleanAttribute });
+  showTicks = input(false, { transform: booleanAttribute });
 
   registerOnChange(fn: unknown): void {
     this.onChange = fn as () => unknown;
@@ -88,7 +89,7 @@ export abstract class BaseSlider<T extends number | SliderRangeValueType>
       this.min(),
       this.max()
     );
-    const step = this.step();
+    const step = this.step() || 1;
     const steppedValue =
       this.min() + Math.round((scale - this.min()) / step) * step;
 

@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal, viewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseSlider } from '../core/base-slider';
 import { SliderThumbComponent } from '../slider-thumb/slider-thumb.component';
@@ -21,10 +21,11 @@ import { scaleRange } from '../utils/scale-range';
   ],
   host: {
     class: 'ngv-slider',
-    '(click)': 'onClick($event)',
+    '(pointerdown)': 'onClick($event)',
   },
 })
 export class SliderComponent extends BaseSlider<number> {
+  thumb = viewChild.required<SliderThumbComponent>('thumb');
   override initValue(): number {
     return 20;
   }
@@ -37,6 +38,7 @@ export class SliderComponent extends BaseSlider<number> {
   });
 
   onClick($event: PointerEvent) {
+    this.thumb().focus();
     this.updateValue(this.eventPosToValue($event));
   }
 

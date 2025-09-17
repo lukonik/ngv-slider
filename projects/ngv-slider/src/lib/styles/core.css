@@ -17,6 +17,22 @@
   position: relative;
 }
 
+.ngv-slider-track-ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ngv-slider-track-tick {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: var(--ngv-slider-tick-color, var(--ngv-slider-track-active-color));
+}
+
 .ngv-slider-track-inactive {
   background: var(--ngv-slider-track-inactive-color);
   position: absolute;

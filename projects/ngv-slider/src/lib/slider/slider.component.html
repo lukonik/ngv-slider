@@ -1,5 +1,6 @@
 <div class="ngv-slider-inner">
   <ngv-slider-thumb
+    #thumb
     [value]="value()"
     [showLabel]="showThumbLabel()"
     (thumbStart)="handleStart()"
@@ -13,5 +14,9 @@
   <ngv-slider-track
     [startPosition]="'0'"
     [endPosition]="position()"
+    [min]="min()"
+    [max]="max()"
+    [step]="step()"
+    [showTicks]="showTicks()"
   ></ngv-slider-track>
 </div>

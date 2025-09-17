@@ -4,3 +4,10 @@
   [style.left]="startPosition()"
   [style.width]="endPosition()"
 ></div>
+@if (showTicks()) {
+  <div class="ngv-slider-track-ticks">
+    @for (tick of ticks(); track $index) {
+      <span class="ngv-slider-track-tick" [style.left]="tick.position"></span>
+    }
+  </div>
+}
